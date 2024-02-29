@@ -1,0 +1,797 @@
+
+
+
+// just the intro to typescript:::
+// let greetings: string = "hello shikhar";
+// greetings
+// let Mynum = 2;
+// console.log(Mynum);
+// console.log(greetings.toUpperCase());
+
+
+
+
+
+
+// boolean and number:::
+// let mynum2 = 2.44554
+// let mynum3: number = 867.838
+// console.log(mynum2.toFixed)
+// console.log(mynum2)
+// console.log(mynum3)
+// let myboolean = false
+// let myboolean2 = true
+// console.log(myboolean)
+// console.log(myboolean2)
+
+
+
+
+
+
+// any type variables::::::::::::::::::::::::::::::
+// any type removes the typescript strictness so it is better to avoid it
+// let villain;
+// function getHero() {
+//     return 23;
+// }
+// villain = getHero();
+
+
+
+
+
+
+
+// funcitons:::::::::::::::::::::::::::::::::::
+// this says that the function will only take num as input and should only return a num
+// just after the defining that num will only take the number input we can not apply any string function on num
+// function sum(num: number): number {
+//     return num + num;
+// }
+// and this res will only take num
+// let res: number = sum(2);
+// console.log(res);
+// there you go it works but you have to give type at someplace in code
+// function text(t: string) {
+//     return t.toUpperCase();
+// }
+// let result = text("dsfs");
+// console.log(result);
+// this is a function that takes multiple defined input and one defined input is set by default
+// so now if you want to call the function it can be called with one value less which is set by default
+// function signupUser(name: string, id: string, subscribe: boolean = false) {
+// }
+// signupUser("shikhar", "shikhar.com", true);
+// signupUser("shivang", "shivang.com");
+// arrow function
+//     let loginUser = (name: string = "shikhar", id: string = "B190050"): number => {
+//         return 5
+//     }
+// console.log(loginUser())
+// let heros = ["spider man", "batman", "thor"]
+// let villains = ["doc oc", "joker", "Thanos"]
+// let heroes_said = villains.map((villain): string => {
+//     return villain + " was right"
+// })
+// let people_said = heros.map((hero, index): string => {
+//     return hero + " : " + heroes_said[index]
+// });
+// console.log(people_said);
+// in case of not any returning funciton specify return type as void
+// function console_error(errmsg: string): void {
+//     console.log(errmsg);
+// }
+// function handle_error(errmsg: string): never {
+//     throw new Error(errmsg);
+// }
+// console_error("type error");
+// handle_error("compile error")
+
+
+
+
+
+
+
+
+
+// Type Alias::::::::::::::::::::
+// const User = {
+//     name: "bhaigiri",
+//     email: "bhaigiri.com",
+//     isActive: false
+// }
+// function createUser(name: string = "abhishek", isPaid: boolean = false): { name: string, isPaid: boolean } {
+//     return { name, isPaid }
+// }
+// console.log(createUser("shivang"))
+// type Branch = {
+//     Name: string;
+//     Num_of_student: number;
+//     Num_of_teachers: number;
+//     Num_of_subjects: number;
+//     Num_of_club: number;
+// }
+// function BrachDetails(br: Branch) {
+
+//     let DoubleTeach = br.Num_of_club - (br.Num_of_teachers / 2)
+//     return DoubleTeach;
+// }
+// console.log(BrachDetails({ Name: "brijesh", Num_of_student: 550, Num_of_teachers: 32, Num_of_subjects: 8, Num_of_club: 25 }));
+
+
+
+
+
+
+
+
+// readonly and optional::::::::::::::::::::::::::
+// type Kites = {
+//     readonly kite_id: number;
+//     size: number;
+//     color: string;
+//     amount_in_rs: number;
+//     stock_of_kite: number;
+//     readonly quality: string
+// }
+// type buyer = {
+//     name: string;
+//     number_of_kite_purchased: number;
+//     amount_paid: number
+// }
+// // type shop = buyer & Kites & {
+// //        earning: number,
+// //        Total_stock:number,
+// // }
+// type shop = {
+//     all_kites: Array<object>;
+//     buyer: Array<object>;
+//     earning: number,
+//     Total_stock: number,
+// }
+
+// // buyer1.quality="poor";
+// // can not change the value of reaonly property it remains same
+
+// let a1kites: Kites = {
+//     kite_id: 1,
+//     size: 2.4,
+//     color: "red",
+//     amount_in_rs: 23,
+//     stock_of_kite: 100,
+//     quality: "good",
+// }
+
+// let b1kites: Kites = {
+//     kite_id: 1,
+//     size: 2.4,
+//     color: "red",
+//     amount_in_rs: 23,
+//     stock_of_kite: 100,
+//     quality: "good",
+// }
+// let c1kites: Kites = {
+//     kite_id: 1,
+//     size: 2.4,
+//     color: "red",
+//     amount_in_rs: 23,
+//     stock_of_kite: 100,
+//     quality: "good",
+// }
+
+
+
+
+
+
+
+// let all_kites1 = [a1kites, b1kites, c1kites];
+// let buyer1: buyer = {
+//     name: "shikhar",
+//     number_of_kite_purchased: 20,
+//     amount_paid: 123,
+// }
+// let buyer2: buyer = {
+//     name: "shivang",
+//     number_of_kite_purchased: 20,
+//     amount_paid: 2123,
+// }
+// let buyer3: buyer = {
+//     name: "abhi",
+//     number_of_kite_purchased: 20,
+
+//     amount_paid: 4123,
+// }
+// let allBuyer = [buyer1]
+
+// let shop1: shop = {
+//     all_kites: all_kites1,
+//     buyer: allBuyer,
+//     earning: buyer1.amount_paid + buyer2.amount_paid + buyer3.amount_paid,
+//     Total_stock: a1kites.stock_of_kite + b1kites.stock_of_kite + c1kites.stock_of_kite
+// }
+
+// function Kites_in_stock(): number {
+//     return shop1.Total_stock
+// }
+// function a1Kites_in_stock(): number {
+//     return a1kites.stock_of_kite;
+// } A
+// function b1Kites_in_stock(): number {
+//     return b1kites.stock_of_kite;
+// }
+// function c1Kites_in_stock(): number {
+//     return c1kites.stock_of_kite;
+// }
+    
+// Readonly is used to save the value from being updated later 
+// and question mark used after property name is used so that if in case that value is not provider we
+// are not match up with an error of the value is not provided
+// so as to make the property optional
+
+
+
+
+
+
+
+
+
+//arrays::::::::::::::::::::::::::
+// const Villain :string[]= [];
+// Villain.push("spiderman");
+
+// console.log(Villain)
+
+// type User={
+//     name:string;
+//     isActive:boolean;
+// }
+
+// const AllUser:User[]=[];
+
+// AllUser.push({name:"abhay",isActive:false})
+// AllUser.push({name:"parth",isActive:true})
+// AllUser.push({name:"vijay",isActive:false})
+// AllUser.push({name:"rajesh",isActive:true})
+// AllUser.push({name:"sandeep",isActive:false})
+// AllUser.push({name:"shreesh",isActive:true})
+// AllUser.push({name:"karthik",isActive:false})
+// AllUser.push({name:"parthav",isActive:true})
+// console.log(AllUser)
+
+// const data :number[][]=[
+//     [12,12,12],
+//     [12,12,12],
+//     [12,12,12]
+//     ]
+
+// console.log(data)
+
+
+
+
+
+
+
+
+// union::::::::::::::::::::
+// let human :number|string=33
+// human="hi";
+// type User ={
+//     name:string,
+//     id:number,
+// }
+// type Admin={
+//     useraname:string;
+//     id :number;
+// }
+// let shikhar :User|Admin = {
+//  name:"shikhar",
+//  id:123
+// }
+// let sanjay : User|Admin={
+//     useraname:"w3423",
+//     id:1232131,
+//     name:"binod"
+// }
+// console.log(sanjay)
+// with union and & operation you can add some variable , object , array multiple types
+// let pie :3.14=3.14;
+// pie=123;
+// this is the literal assignment which can not be changed from the value that is given as a type
+// const data  : number[] = [1,2,3];
+// normal number array 
+// const data2 : string[]= ["hi","hello","hey"]
+// normal string array
+// const data3 : number[] | string [] = ["1","1"]
+// special number or string array one of them only at a time not both together
+// const data4 :( number | string )[] = ["1",2,3,"34"]
+// in this both types of value can be stored at the same time 
+// seatAllotment : middle|upper|lower;
+// let seatAllotment : "middle"|"upper"|"lower"
+// seatAllotment = "middle"
+// its good
+// seatAllotment = "emergency"
+// its wromg
+
+
+
+// Tuples:::::::::::::::::::
+// let data : [number, string]
+// data = [1,"1"];
+// type User = [number,string];
+// let data1 : User = [1,"hi"]
+// data1[0]=2;
+// data1.push(1);
+// data1.push(1)
+// data1.push("hi",1)
+// console.log(data1);
+
+
+
+//Enums::::::::::::::::::::::
+// Enums provide a way to create a set of named values, improving code readability, maintainability, and reducing the likelihood of errors.
+// They are especially beneficial when dealing with a fixed and well-defined set of options or states.
+// const_ enum data{
+//     first="1",
+//     second=2,
+//     third
+// }
+// const rank= data.first
+// console.log(rank)
+
+
+
+
+//Interface::::::::::::::::::::
+// Both interface and type are powerful tools, 
+// and the choice between them often comes down to personal 
+// or team preferences and the specific needs of your codebase. 
+// In many cases, they can be used interchangeably.
+// interface User {
+//     Name: string;
+//     readonly Id: string;
+//     Branch:string;
+//     Phone_Number?:number;
+//     Info(crush:string):string
+// }
+// interface User{
+//     Address:string
+// }
+// interface Position extends User , Emotion {
+//     Role:"dev"|"tester"|"ba"
+// }
+// interface Emotion {
+//     Feeling:"good"|"bad"|"Great"|"neutral"
+// }
+// const data1:User={
+//    Name:"shikhar",
+//    Id:"B190050",
+//    Address:"ratanada",
+//    Branch:"cse", 
+//    Phone_Number:9898989898,
+//    Info(crush:string){return data1.Name+" "+crush}
+// }
+// const data2:Position={
+//    Name:"shikhar",
+//    Feeling:"Great",
+//    Id:"B190050",
+//    Address:"ratanada",
+//    Branch:"cse",
+//    Role:"dev",
+//    Phone_Number:9898989898,
+//    Info(crush:string){return data1.Name+" "+crush}
+// }
+// console.log(data1.Info("megan"))
+// console.log(data2.Feeling)
+
+
+
+
+
+// Class::::::::::::::::::::::::::
+// class User{
+//     email:string;
+//     name:string;
+//     constructor(email:string,name:string){
+//         this.email=email;
+//         this.name=name;
+//     }
+// }
+
+// const shikhar = new User("s@G.com", "shikhar")
+
+
+// class User{
+//     readonly  email:string;
+//     public    name :string;
+//     private   city :string;
+//     constructor(email:string,name:string,city:string){
+//         this.email= email;
+//         this.name = name;
+//         this.city = city;
+//     }
+    
+// }
+// class User{
+//     constructor(public email:string, public name:string){   
+//     }
+// }
+// let shikhar = new User("shikhar","shikhar","jodhpur")
+// shikhar.email="sdfs"
+// shikhar.name="sdfs"
+// shikhar.city="sdfs"
+
+
+
+
+// Getter and setter::::::::::::::::::::::::
+// class User{
+//     private _courseCount : number;
+
+//     constructor(courseCount:number ){  
+//             this._courseCount=courseCount;
+//     }
+
+//     get courseCount():number{
+//         return this._courseCount;
+//     }
+//     set courseCount(courseTaken:number){
+//         if (courseTaken >= 0) {
+//         this._courseCount = this.courseCount+  courseTaken;
+//         }else {
+//             console.error("Course Count must be a non-negative value.");
+//         }
+
+//     }
+// }
+// let shikhar = new User(78)
+
+// console.log(shikhar.courseCount)
+
+// shikhar.courseCount=78;
+
+// console.log(shikhar.courseCount)
+
+
+
+
+
+
+
+// Protected Access modifier:::::::::::::::::::::::::::::::
+// class User{
+//     protected _courseCount : number;
+
+//     constructor(courseCount:number ){  
+//             this._courseCount=courseCount;
+//     }
+//     public deleteToken(){
+//         console.log("token Deleted")
+//     }
+//     get courseCount():number{
+//         return this._courseCount;
+//     }
+//     set courseCount(courseTaken:number){
+//         if (courseTaken >= 0) {
+//         this._courseCount = this.courseCount+  courseTaken;
+//         }else {
+//             console.error("Course Count must be a non-negative value.");
+//         }
+
+//     }
+// }
+// class subUser extends User{
+//     changeCounte(){
+//     this._courseCount=23;
+//     }
+// }
+// let shikhar = new User(78)
+
+// console.log(shikhar.courseCount)
+
+// shikhar.courseCount=78;
+
+// console.log(shikhar.courseCount)
+
+// shikhar.deleteToken();
+
+
+
+
+
+
+// why is interface important:::::::::::::::::::::::::::::::::::
+// implement are only used with interface
+// interface takephoto {
+//     quality: string,
+//     size: string,
+//     quantity: number,
+//     camera: boolean,
+
+// }
+// interface takeVideo{
+//     startRecording():void
+    
+// }
+
+// class pixel implements takephoto , takeVideo {
+//     constructor(
+//         public quality: string,
+//         public size: string,
+//         public quantity: number,
+//         public camera: boolean) {
+//     }
+//     startRecording(){
+//         console.log("hi hello")
+//     }
+// }
+
+// let abhay = new pixel("good","big",3,true)
+// abhay.startRecording();
+
+
+
+
+
+
+
+// Abstract Class :::::::::::::::::::::::::::::::::
+// abstract class can not be used to create an object a class that extends abstract class can be used to create object
+//abstract class mai function tum define kar sakte ho but not in interface , interface mai bus declare kr sakte ho
+// abstract class User{
+//     constructor(
+//     public name : string,
+//     public id: string,
+//     public role: string,
+//     ){}
+//     abstract getUser(){
+//         return 3;
+//     }
+// }
+
+// class SubUser extends User{
+// }
+
+// let abhi = new SubUser("a","b","c")
+// console.log(abhi.getUser())
+//abstract class User{
+    // constructor(
+    //     public name : string,
+    //     public id: string
+    //     ){}
+    //     get_it_done():number{
+    //         return 2
+    //     }
+        
+    // }
+    
+    // class SubUser extends User{
+    //  constructor(
+    //     public name:string,
+    //     public id:string,
+    //     public role:string
+    //  ){
+    //     super(name,id)
+    //  }
+    
+    // }
+    
+    
+    // let samay = new SubUser('samay','1231','dsfs')
+    // console.log(samay.get_it_done())
+    
+    
+    
+
+//funtion that returns different type of value based on the type of value it received
+
+// function identityOne(val: number | boolean): number | boolean {
+//     if (typeof (val) == "number")
+//         return 234
+//     else
+//         return true
+// }
+
+// console.log(identityOne(123))
+
+
+
+
+
+
+
+//Generics:::::::::::::::::::::::::::::::::::
+// const score: Array<number> = []
+
+// const store: Array<string> = []
+
+// function identityOne(val: number | boolean): number | boolean {
+//     if (typeof (val) == "number")
+//         return 234
+//     else
+//         return true
+// }
+
+// console.log(identityOne(123))
+
+// function identityTwo(val : any):any{
+//     return 78
+// }
+// console.log(identityTwo(78))
+
+// function identityThree<IAmUsingSomethingSpecialAsType>(val:IAmUsingSomethingSpecialAsType):IAmUsingSomethingSpecialAsType{
+//   return val 
+// }
+
+// console.log(identityThree("king"))
+
+// interface village{
+//     population:number,
+//     electricity:boolean
+// }
+
+// function identityFour<village>(dal:village):village{
+//     return dal
+// }
+
+// console.log(identityFour<village>({population:4,electricity:true}))
+
+// function getanArray<T>(products:T[]):T{
+//     return products[7];
+// }
+
+// let a = [1,2,3,4,5,6,7,8]
+// console.log(getanArray(a))
+
+// const getAnotherArray = <T,>(pop:T[]):T=>{
+//     return pop[5]
+// }
+// console.log(getAnotherArray(a))
+
+// class sell<T>{
+//     public cart: T[] = []
+//     addToCart(product:T){
+//         this.cart.push(product)
+//     }
+// }
+
+// function type(strs:string|Array<string>|null){
+//     if(strs){
+//         if(typeof strs ==="object"){
+//             for(const s of strs){
+//                 console.log(s);
+//             }
+//         }
+//         if(typeof strs === "string"){
+//             console.log(strs);
+//         }
+//     }}
+
+//     type(["s","h","i","k","h","a","r"])
+
+
+
+
+
+
+
+
+
+// the in operator narrowing::::::::::::::::::::::::::::::::::::::
+// interface User{
+//     name:string,
+//     email:string,
+//     isAdmin:boolean,
+
+// }
+// interface Admin{
+//     name :string,
+//     email:string,
+
+// }
+
+// function isAdmin(account:User|Admin){
+//     if("isAdmin" in account){
+//         return isAdmin
+//     }
+// }
+
+
+
+
+
+
+//INSTANCE OF KO USE KAR RAHE HAI HAI YE TYPE OF KI TARAH HAI:::::::::::::::::::::::::::::::
+// function instan(x:Date|string){
+//     if(x instanceof Date){
+//         console.log(x.toUTCString())
+//     }else{
+//         console.log(x.toLowerCase())
+//     }
+// }
+
+// let x = new Date;
+// let y = "SHIVANG"
+// instan(y);
+
+
+
+
+// type Bird = {fly():void}
+// type Fish = {swim():void}
+
+
+// function isBird( pet:Bird|Fish ):pet is Bird{
+//     return (pet as Bird).fly !== undefined
+// }
+
+// function getFood(pet :Fish|Bird){
+//     if(!isBird(pet)){
+//         pet
+//         return "Fish Food"
+//     }else{
+//         pet
+//         return "Bird Food"
+//         }
+//     }
+// const kingfishser : Bird = {fly:()=>console.log("flying")}
+// const goldFish : Fish = {swim:()=>console.log("flying")}
+// console.log(isBird(kingfishser))
+// console.log(isBird(goldFish))
+// console.log(getFood(kingfishser))
+// console.log(getFood(goldFish))
+
+
+
+
+
+//Discriminated Union and Exhaustiveness Checking with never:::::::::::::::::::::::::::::::::::::::::::
+// interface circle {
+//     kind:"circle",
+//     radius:number,
+// }
+
+// interface square {
+//     kind:"square",
+//     side:number,
+// }
+
+
+// interface rectangle {
+//     kind:"rectangle",
+//     length:number,
+//     width:number
+// }
+
+// type shape = square | circle | rectangle
+
+// function getTrueShape(shape:shape){
+//     if(shape.kind==="circle"){
+//        return Math.PI * shape.radius * shape.radius
+//     }
+//     else if(shape.kind==="square"){
+//         return shape.side*shape.side
+//     }
+//     return shape.length*shape.width
+// }
+
+// function getArea(shape:shape){
+//     switch(shape.kind){
+//         case "circle":
+//            return  Math.PI * shape.radius * shape.radius
+
+//         case "square":
+//            return shape.side*shape.side
+
+//         case "rectangle":
+//            return shape.length*shape.width
+
+//         default:
+//             const _whenthereiseverythingusedalready:never =shape
+//             return _whenthereiseverythingusedalready
+//         }
+//     }
